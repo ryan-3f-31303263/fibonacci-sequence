@@ -1,2 +1,17 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+def next_item(prev_n,n,track):
+    global store
+    track-=1
+    next_n = prev_n + n
+    store.append(next_n)
+    if track>0:
+        next_item(n,next_n,track)
+
+store=[]
+amount=int(input('number of items: '))-2
+if amount>2:
+    store.append(0)
+    store.append(1)
+    next_item(0,1,amount)
+else:
+    store.append(0)
+print(store)
